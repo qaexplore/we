@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>产品介绍</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="BLEX & QUANTAXIS" name="keywords">
+    <meta content="BLEX & QUANTAXIS" name="description">
+    <link rel="stylesheet" href="./css/style-product.css">
+    
+</head>
+
+<body>
+    <div class="product">
+
+    </div>
+    <script src="lib/jquery/jquery.min.js"></script>
+    
+    <script>
+        // 解析页面跳转时传递过来的参数
+        function getParams(params) {
+            var paras = params;
+            var result = paras.match(/[^\?&]*=[^&]*/g);
+            paras = {};
+            for (i in result) {
+                var temp = result[i].split('=');
+                paras[temp[0]] = temp[1];
+            }
+            return paras;
+        }
+        const params = window.location.search
+        const product_title = decodeURI(getParams(params).product_title)
+        $('.product').text(product_title)
+    </script>
+</body>
+
+</html>
